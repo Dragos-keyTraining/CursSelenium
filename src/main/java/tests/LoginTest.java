@@ -1,5 +1,7 @@
 package tests;
 
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -14,7 +16,7 @@ public class LoginTest extends BaseTest{
 	public void loginTest(String username, String password) {
 		NavigationMenuPage navMenu = new NavigationMenuPage(driver);
 		navMenu.navigateTo(navMenu.loginLink);
-		
+		assertTrue(false);
 		LoginPage loginPage =  new LoginPage(driver);
 		loginPage.loginInApp(username, password);
 		
