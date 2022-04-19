@@ -2,6 +2,7 @@ package utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -14,24 +15,29 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import com.google.common.io.Files;
 
 public class BaseTest {
 	
   public WebDriver driver;
-	
+  
 	@BeforeClass
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
 		//System.setProperty("webdriver.chrome.driver", "drivers/chromedriver17");
+		
 		driver =  new ChromeDriver();	
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
+		//driver =initDriver(browser);
 		driver.get("https://keybooks.ro/");
 		//driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 		//driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 	}
 	
+
 	
 	@AfterClass
 	public void tearDown() throws InterruptedException {

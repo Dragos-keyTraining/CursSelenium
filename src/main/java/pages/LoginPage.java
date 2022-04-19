@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import utils.Log;
+
 public class LoginPage {
 	
 	WebDriver driver;
@@ -21,9 +23,14 @@ public class LoginPage {
 	
 	//metode
 	public void loginInApp(String user , String pass) {
+		Log.info("method login in app");
 		driver.findElement(username).sendKeys(user);
+		Log.info("send username" + user);
 		driver.findElement(password).sendKeys(pass);
+		Log.info("send username" + pass);
 		driver.findElement(loginButton).click();
+		Log.info("click login button");
+
 		
 	}
 	
